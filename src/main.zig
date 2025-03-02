@@ -1,8 +1,8 @@
 const rl = @import("raylib");
 
 pub fn main() anyerror!void {
-    const screenWidth = 800;
-    const screenHeight = 450;
+    const screenWidth = 1360;
+    const screenHeight = 960;
 
     rl.initWindow(screenWidth, screenHeight, "moon-lander-zig");
     defer rl.closeWindow();
