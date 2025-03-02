@@ -14,7 +14,7 @@ pub fn main() anyerror!void {
     const topRight = rl.Vector2{ .x = screenWidth, .y = 0 };
     const bottomLeft = rl.Vector2{ .x = 0, .y = screenHeight };
     const bottomRight = rl.Vector2{ .x = screenWidth, .y = screenHeight };
-    var lineB = rl.Vector2{ .x = 0, .y = 0 };
+    var lineB = rl.Vector2{ .x = screenWidth / 2, .y = screenHeight / 2 };
 
     while (!rl.windowShouldClose()) {
         // Update game state
