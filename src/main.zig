@@ -10,12 +10,26 @@ pub fn main() anyerror!void {
     rl.setWindowPosition(100, 100);
     rl.setTargetFPS(60);
 
+    const topLeft = rl.Vector2{ .x = 0, .y = 0 };
+    const topRight = rl.Vector2{ .x = screenWidth, .y = 0 };
+    const bottomLeft = rl.Vector2{ .x = 0, .y = screenHeight };
+    const bottomRight = rl.Vector2{ .x = screenWidth, .y = screenHeight };
+    var lineB = rl.Vector2{ .x = 0, .y = 0 };
+
     while (!rl.windowShouldClose()) {
+        // Update game state
+
+        // Render
         rl.beginDrawing();
         defer rl.endDrawing();
+        rl.clearBackground(rl.Color.black);
 
-        rl.clearBackground(rl.Color.white);
-
-        rl.drawText("Hello Raylib World!", 190, 200, 20, rl.Color.light_gray);
+        if (rl.isMouseButtonDown(rl.MouseButton.left)) {
+            lineB = rl.getMousePosition();
+        }
+        rl.drawLineV(topLeft, lineB, rl.Color.white);
+        rl.drawLineV(topRight, lineB, rl.Color.white);
+        rl.drawLineV(bottomLeft, lineB, rl.Color.white);
+        rl.drawLineV(bottomRight, lineB, rl.Color.white);
     }
 }
